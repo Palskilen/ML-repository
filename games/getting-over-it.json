@@ -19,12 +19,33 @@
     },
     "checkpoint": {
       "name": "Checkpoint",
-      "desc": "Jeden checkpoint naraz: pozycja, młotek i kamera. Akcje działają, gdy cheat jest włączony.",
+      "desc": "Jeden checkpoint: pozycja, młotek i kamera. W grze widać go z daleka jako znacznik, a w apce i na overlayu status.",
       "icon": "pin",
       "bind": "F7",
       "actions": [
         { "id": "set", "name": "Postaw checkpoint", "bind": "G" },
         { "id": "tp", "name": "Teleportuj do checkpointa", "bind": "T" }
+      ]
+    },
+    "minimap": {
+      "name": "Minimapa",
+      "desc": "Podgląd mapy w rogu ekranu oraz pełna mapa: zaznacz miejsce i teleportuj się. Teleport w strefę końca gry jest zablokowany.",
+      "icon": "map",
+      "bind": "F9",
+      "value": { "min": 30, "max": 160, "step": 5, "default": 70, "unit": " m" },
+      "actions": [
+        { "id": "open", "name": "Otwórz pełną mapę", "bind": "M" }
+      ]
+    },
+    "glue": {
+      "name": "Klej",
+      "desc": "Przyklej młotek albo postać do powierzchni (jedno odkleja drugie) i „chodź” po ścianie.",
+      "icon": "link",
+      "bind": "F10",
+      "actions": [
+        { "id": "hammer", "name": "Przyklej / odklej młotek", "bind": "Q" },
+        { "id": "body", "name": "Przyklej / odklej postać", "bind": "E" },
+        { "id": "release", "name": "Odklej wszystko", "bind": "X" }
       ]
     }
   },
