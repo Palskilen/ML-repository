@@ -1,5 +1,5 @@
 {
-  "schema": 1,
+  "schema": 2,
   "id": "getting-over-it",
   "name": "Getting Over It with Bennett Foddy",
   "steam": 240720,
@@ -10,61 +10,22 @@
   },
 
   "cheats": {
-    "low_gravity": {
+    "gravity": {
       "name": "Niska grawitacja",
-      "desc": "Lecisz jak na Księżycu",
+      "desc": "Zmienia grawitację w grze. Normalna wartość to 30, mniej = lżejszy lot.",
       "icon": "moon",
-      "type": "toggle",
-      "key": "F1",
-      "code": { "plugin": "ML.GettingOverIt.dll", "fn": "LowGravity", "args": { "gravityScale": 0.35 } }
+      "bind": "F6",
+      "value": { "min": 0, "max": 30, "step": 0.5, "default": 10, "unit": " m/s²" }
     },
-    "save_pos": {
-      "name": "Zapisz pozycję",
-      "desc": "Zapamiętuje, gdzie teraz jesteś",
+    "checkpoint": {
+      "name": "Checkpoint",
+      "desc": "Jeden checkpoint naraz: pozycja, młotek i kamera. Akcje działają, gdy cheat jest włączony.",
       "icon": "pin",
-      "type": "action",
-      "key": "F2",
-      "code": { "plugin": "ML.GettingOverIt.dll", "fn": "SavePosition" }
-    },
-    "load_pos": {
-      "name": "Wróć do zapisu",
-      "desc": "Teleport do zapisanej pozycji",
-      "icon": "target",
-      "type": "action",
-      "key": "F3",
-      "code": { "plugin": "ML.GettingOverIt.dll", "fn": "LoadPosition" }
-    },
-    "hammer_power": {
-      "name": "Siła młota",
-      "desc": "Mnożnik siły odbicia",
-      "icon": "hammer",
-      "type": "range",
-      "min": 1,
-      "max": 5,
-      "step": 0.5,
-      "default": 1,
-      "key": "F4",
-      "code": { "plugin": "ML.GettingOverIt.dll", "fn": "HammerPower" }
-    },
-    "game_speed": {
-      "name": "Prędkość gry",
-      "desc": "Zwolnij albo przyspiesz czas",
-      "icon": "gauge",
-      "type": "range",
-      "min": 0.5,
-      "max": 3,
-      "step": 0.25,
-      "default": 1,
-      "key": "F5",
-      "code": { "plugin": "ML.GettingOverIt.dll", "fn": "GameSpeed" }
-    },
-    "no_fall": {
-      "name": "Bez spadania",
-      "desc": "Podłoga pod największymi spadkami",
-      "icon": "shield",
-      "type": "toggle",
-      "key": "F6",
-      "code": { "plugin": "ML.GettingOverIt.dll", "fn": "NoFall" }
+      "bind": "F7",
+      "actions": [
+        { "id": "set", "name": "Postaw checkpoint", "bind": "G" },
+        { "id": "tp", "name": "Teleportuj do checkpointa", "bind": "T" }
+      ]
     }
   },
 
@@ -72,18 +33,12 @@
     "engine": "unity-mono",
     "arch": "x64",
     "exe": "GettingOverIt.exe",
-    "loader": {
-      "name": "BepInEx",
-      "version": "5.4.23.6",
-      "url": "https://github.com/BepInEx/BepInEx/releases/download/v5.4.23.6/BepInEx_win_x64_5.4.23.6.zip",
-      "extract_to": "{game}"
+    "inject": {
+      "payload": "plugins/getting-over-it/payload.dll",
+      "namespace": "MLTester",
+      "class": "Loader",
+      "method": "Init"
     },
-    "files": [
-      {
-        "url": "plugins/getting-over-it/ML.GettingOverIt.dll",
-        "to": "{game}/BepInEx/plugins/ML.GettingOverIt.dll"
-      }
-    ],
-    "launch": { "via": "steam", "args": [] }
+    "launch": { "via": "steam" }
   }
 }
