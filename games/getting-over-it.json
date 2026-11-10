@@ -1,0 +1,89 @@
+{
+  "schema": 1,
+  "id": "getting-over-it",
+  "name": "Getting Over It with Bennett Foddy",
+  "steam": 240720,
+  "developer": "Bennett Foddy",
+  "links": {
+    "steam": "https://store.steampowered.com/app/240720/",
+    "website": "https://www.foddy.net/"
+  },
+
+  "cheats": {
+    "low_gravity": {
+      "name": "Niska grawitacja",
+      "desc": "Lecisz jak na Księżycu",
+      "icon": "moon",
+      "type": "toggle",
+      "key": "F1",
+      "code": { "plugin": "ML.GettingOverIt.dll", "fn": "LowGravity", "args": { "gravityScale": 0.35 } }
+    },
+    "save_pos": {
+      "name": "Zapisz pozycję",
+      "desc": "Zapamiętuje, gdzie teraz jesteś",
+      "icon": "pin",
+      "type": "action",
+      "key": "F2",
+      "code": { "plugin": "ML.GettingOverIt.dll", "fn": "SavePosition" }
+    },
+    "load_pos": {
+      "name": "Wróć do zapisu",
+      "desc": "Teleport do zapisanej pozycji",
+      "icon": "target",
+      "type": "action",
+      "key": "F3",
+      "code": { "plugin": "ML.GettingOverIt.dll", "fn": "LoadPosition" }
+    },
+    "hammer_power": {
+      "name": "Siła młota",
+      "desc": "Mnożnik siły odbicia",
+      "icon": "hammer",
+      "type": "range",
+      "min": 1,
+      "max": 5,
+      "step": 0.5,
+      "default": 1,
+      "key": "F4",
+      "code": { "plugin": "ML.GettingOverIt.dll", "fn": "HammerPower" }
+    },
+    "game_speed": {
+      "name": "Prędkość gry",
+      "desc": "Zwolnij albo przyspiesz czas",
+      "icon": "gauge",
+      "type": "range",
+      "min": 0.5,
+      "max": 3,
+      "step": 0.25,
+      "default": 1,
+      "key": "F5",
+      "code": { "plugin": "ML.GettingOverIt.dll", "fn": "GameSpeed" }
+    },
+    "no_fall": {
+      "name": "Bez spadania",
+      "desc": "Podłoga pod największymi spadkami",
+      "icon": "shield",
+      "type": "toggle",
+      "key": "F6",
+      "code": { "plugin": "ML.GettingOverIt.dll", "fn": "NoFall" }
+    }
+  },
+
+  "setup": {
+    "engine": "unity-mono",
+    "arch": "x64",
+    "exe": "GettingOverIt.exe",
+    "loader": {
+      "name": "BepInEx",
+      "version": "5.4.23.6",
+      "url": "https://github.com/BepInEx/BepInEx/releases/download/v5.4.23.6/BepInEx_win_x64_5.4.23.6.zip",
+      "extract_to": "{game}"
+    },
+    "files": [
+      {
+        "url": "plugins/getting-over-it/ML.GettingOverIt.dll",
+        "to": "{game}/BepInEx/plugins/ML.GettingOverIt.dll"
+      }
+    ],
+    "launch": { "via": "steam", "args": [] }
+  }
+}
